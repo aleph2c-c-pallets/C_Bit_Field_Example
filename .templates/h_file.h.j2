@@ -1,0 +1,12 @@
+#ifndef {{ program | capitalize }}_H
+#define {{ program | capitalize }}_H
+
+#include <stdio.h>
+#include <sys/types.h>
+#include "common.h"
+{% set public_name = program | upper %}
+
+void {{ public_name }}_fnInit( void );
+void {{ public_name }}_fnStart( void );
+
+#endif

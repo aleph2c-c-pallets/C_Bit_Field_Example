@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <sys/types.h>
+#include "{{ program }}.h"
+
+{% set public_name = program | upper %}
+
+int main() { 
+    // initialize the module(s)
+    {{ public_name }}_fnInit();
+
+    // run the application
+    {{ public_name }}_fnStart();
+
+    printf("Hello World!\n");
+    return 0;
+}
