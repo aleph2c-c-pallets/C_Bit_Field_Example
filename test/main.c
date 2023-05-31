@@ -35,7 +35,7 @@ int main() {
     BITFIELD_fnStart();
 
     const struct CMUnitTest tests[] = {
-      cmocka_unit_test(bitfield_fnTest),
+      cmocka_unit_test(bitfield_fnTestBaseline),
       cmocka_unit_test(bitfield_fnTestCreatePacket),
       cmocka_unit_test(bitfield_fnTestValidatePacket),
     };
