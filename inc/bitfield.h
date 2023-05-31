@@ -1,6 +1,6 @@
 /*=============================================================================
-   BitField Project Example
-   (c) 2023 BitField Project Example
+  Project/Company-Name
+  (c) 2023 Project/Company-Name
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
   limitations under the License.
 
 @brief bitfield.h
+
+  Public interface for bitfield.c
 
 @code{.c}
   // bitfield.h package usage example

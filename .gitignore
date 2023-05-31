@@ -61,4 +61,4 @@ build/*
 *.egg-info
 cli/__pycache__
 cli/__pycache__/*
-
+tags
