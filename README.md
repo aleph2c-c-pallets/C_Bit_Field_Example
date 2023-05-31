@@ -29,26 +29,28 @@ endianness, so be careful when interpreting the data packet.
 To validate this challenge:
 
 ```bash
-# Confirm you have the prerequisites installed on your system (see below).
+# 1. Confirm you have the prerequisites installed on your system (see below).
 
-# Clone the repo in your *nix environment.
+# 2. Clone the repo in your *nix environment.
 git clone git@github.com:aleph2c/C_Bit_Field_Example.git
 cd C_Bit_Field_Example
 
-# Read test/bitfield_test.c to confirm the tests meet the challenge.
-cd build
+# 3. Read test/bitfield_test.c to confirm the tests meet the challenge.
 
-# Create the make file.
+# 4. Create the make file.
+cd build
 cmake ..
 
-# Build the binary and test-binary.
+# 5. Build the binary and test-binary.
 make
 
-# Run the test binary and confirm all tests pass.
+# 6. Run the test binary and confirm all tests pass.
 ctest --output-on-failure
 
 # Review the code organization below and assess whether the
 # files adhere to a sufficiently high standard.
+# (If you are using the WSL with Windows 11, you can open "VS Code" in Windows)
+code .
 ```
 
 Code organization:
