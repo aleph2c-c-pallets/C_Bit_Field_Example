@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Set the project name
-project (c_beachhead)
+project (C_bit_field)
 
 # Glob the source files
 file(GLOB SOURCES "src/*.c")
@@ -9,9 +9,9 @@ file(GLOB SOURCES "src/*.c")
 file(GLOB TESTS "test/*.c")
 
 # Main executable
-add_executable(hey main.c ${SOURCES})
+add_executable(bitfield main.c ${SOURCES})
 
-target_include_directories( hey PUBLIC
+target_include_directories( bitfield PUBLIC
     "${PROJECT_BINARY_DIR}"
     "${PROJECT_SOURCE_DIR}/inc"
 )
@@ -25,4 +25,4 @@ target_include_directories( tests PRIVATE
     "${PROJECT_SOURCE_DIR}/test"
 )
 target_link_libraries(tests cmocka)
-add_test(NAME hey_tests COMMAND tests)
+add_test(NAME bitfield_tests COMMAND tests)
