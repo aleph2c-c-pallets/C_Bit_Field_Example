@@ -35,9 +35,10 @@ source .venv/bin/activate
 pip install -e .
 
 try tests
+
 ```
 
-Hint: To check endianness consider this code:
+**Hint**: To check endianness consider this code:
 
 ```c
 int is_big_endian() {
@@ -50,4 +51,15 @@ int is_big_endian() {
 }
 ```
 
-In the above function, we create an integer with a value of 1. If the system is little-endian, the least significant byte will be the 1 and the rest will be 0s. If the system is big-endian, the most significant byte will be the 1, and the rest will be 0s. When we cast the integer to a char (which is 1 byte), we'll get the first byte. If it's 1, we know the system is little-endian, and if it's 0, the system is big-endian.
+In the above function, we create an integer with a value of 1. If the system is
+little-endian, the least significant byte will be the 1 and the rest will be 0s.
+If the system is big-endian, the most significant byte will be the 1, and the
+rest will be 0s. When we cast the integer to a char (which is 1 byte), we'll get
+the first byte. If it's 1, we know the system is little-endian, and if it's 0,
+the system is big-endian.
+
+
+**Hint**:  The ``<arpa/inet.h>`` library contains functions for converting the
+endianes of variables.  This is useful, because a packet needs to be converted
+to big-endian before it's put out on the wire.  How it is managed on the
+hardware is dependant on what platform the C code has been build upon.
