@@ -50,6 +50,7 @@ ctest --output-on-failure
 # Review the code organization below and assess whether the
 # files adhere to a sufficiently high standard.
 # (If you are using the WSL with Windows 11, you can open "VS Code" in Windows)
+cd ..
 code .
 ```
 
