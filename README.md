@@ -29,26 +29,32 @@ endianness, so be careful when interpreting the data packet.
 To validate this challenge:
 
 ```bash
-# read test/bitfield_test.c to confirm the tests meet the challenge
+# Confirm you have the prerequisites installed on your system (see below).
+
+# Clone the repo in your *nix environment.
+git clone git@github.com:aleph2c/C_Bit_Field_Example.git
+cd C_Bit_Field_Example
+
+# Read test/bitfield_test.c to confirm the tests meet the challenge.
 cd build
 
-# create the make file
+# Create the make file.
 cmake ..
 
-# build the binary and test-binary
+# Build the binary and test-binary.
 make
 
-# run the test binary and confirm all tests pass
+# Run the test binary and confirm all tests pass.
 ctest --output-on-failure
 
-# review the code organization below and assess whether the
+# Review the code organization below and assess whether the
 # files adhere to a sufficiently high standard.
 ```
 
 Code organization:
 
-- ``main.c``: main.c for debug build used by ``./build/bitfield`` binary
-- ``test/main.c``: main.c for test build used by ctest
+- ``main.c``: main.c for debug build used by the ``./build/bitfield`` binary
+- ``test/main.c``: main.c for test build used by ``ctest``
 - ``src/bitfield.c``: **the package that answers the challenge**
 - ``inc/common.h``: common header files used by all packages
 - ``inc/bitfield.h``: public interface for ``bitfield.c`` 
@@ -58,3 +64,15 @@ Code organization:
 ---
 
 This project was created using the [c_beachhead](https://github.com/aleph2c/c_beachhead)
+
+# Prerequisites
+
+Use this, or the equivalent for your OS to install the required packages:
+
+```bash
+sudo apt update
+sudo apt install build-essential  # installs gcc, gcc+ and make
+sudo apt install gdb # a C debugger that "VS Code" will use from windows 11
+sudo apt install cmake # portable make
+sudo apt-get install libcmocka-dev # Sambda's CMocka C testing framework
+```
