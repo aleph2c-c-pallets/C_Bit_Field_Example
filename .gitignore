@@ -54,9 +54,11 @@ dkms.conf
 # cmake
 build/CMakeFiles
 build/CMakeFiles/*
+build/*
 
 # python related
 .venv/*
 *.egg-info
 cli/__pycache__
 cli/__pycache__/*
+

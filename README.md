@@ -20,46 +20,41 @@ number, and data, and returns a data packet with the correct checksum.
 recalculates the checksum, and returns true if the recalculated checksum matches
 the checksum in the packet, false otherwise.
 
-Keep in mind that the total size of the bit fields is 32 bits, which can fit into a uint32_t. However, the order of the bit fields can depend on the system's endianness, so be careful when interpreting the data packet.
+Keep in mind that the total size of the bit fields is 32 bits, which can fit
+into a uint32_t. However, the order of the bit fields can depend on the system's
+endianness, so be careful when interpreting the data packet.
 
 ---
 
 To validate this challenge:
 
 ```bash
-# Log into your WSL Linux distribution and run the commands
-# in your preferred shell
+# read test/bitfield_test.c to confirm the tests meet the challenge
+cd build
 
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e .
+# create the make file
+cmake ..
 
-try tests
+# build the binary and test-binary
+make
 
+# run the test binary and confirm all tests pass
+ctest --output-on-failure
+
+# review the code organization below and assess whether the
+# files adhere to a sufficiently high standard.
 ```
 
-**Hint**: To check endianness consider this code:
+Code organization:
 
-```c
-int is_big_endian() {
-    int num = 1;
-    if(*(char *)&num == 1) {
-        return 0; // Little Endian
-    } else {
-        return 1; // Big Endian
-    }
-}
-```
+- ``main.c``: main.c for debug build used by ``./build/bitfield`` binary
+- ``test/main.c``: main.c for test build used by ctest
+- ``src/bitfield.c``: **the package that answers the challenge**
+- ``inc/common.h``: common header files used by all packages
+- ``inc/bitfield.h``: public interface for ``bitfield.c`` 
+- ``test/bitfield_test.h``: public interface for the tests
+- ``test/bitfield_test.c``: CMocka test code to evaluate ``src/bitfield.c``
 
-In the above function, we create an integer with a value of 1. If the system is
-little-endian, the least significant byte will be the 1 and the rest will be 0s.
-If the system is big-endian, the most significant byte will be the 1, and the
-rest will be 0s. When we cast the integer to a char (which is 1 byte), we'll get
-the first byte. If it's 1, we know the system is little-endian, and if it's 0,
-the system is big-endian.
+---
 
-
-**Hint**:  The ``<arpa/inet.h>`` library contains functions for converting the
-endianes of variables.  This is useful, because a packet needs to be converted
-to big-endian before it's put out on the wire.  How it is managed on the
-hardware is dependant on what platform the C code has been build upon.
+This project was created using the [c_beachhead](https://github.com/aleph2c/c_beachhead)

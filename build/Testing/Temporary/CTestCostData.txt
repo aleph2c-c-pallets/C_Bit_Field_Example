@@ -1,2 +1,0 @@
-bitfield_tests 8 6.40406e-05
----
